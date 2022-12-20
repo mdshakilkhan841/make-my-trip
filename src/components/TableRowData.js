@@ -2,18 +2,6 @@ import React from 'react';
 import Records from './records.json';
 import Button from './Button';
 
-const TableMessage = ({ collectMessage }) => {
-    return (
-        <div>
-            {
-                Records.map((records)=>{
-                    return(records.message)
-                })
-            }
-        </div>
-    )
-}
-
 const TableRowData = () => {
     return (
         <>

@@ -1,20 +1,13 @@
 import React from 'react';
+import Records from './records.json';
 import TableRowData from './TableRowData';
-// import TableMessage from './TableRowData';
 
 const DisplayData = () => {
-
-    // const[message, setMessage]= useState('');
-    // const messageDisplay = () => {
-    //     Records.map((records) => (
-    //         message(records.message)
-    //     ))
-    //     setMessage(message);
-    //     console.log(message);
-    // };
     return (
         <div className='max-w-[1240px] mx-auto'>
-            <h1 className='font-semibold'> </h1>
+            <h1 className='font-semibold'>
+                {Records.map( (records)=> (records.message))}
+            </h1>
             <br />
             <div class="flex flex-col">
                 <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
