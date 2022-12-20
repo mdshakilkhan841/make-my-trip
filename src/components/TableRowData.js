@@ -12,7 +12,7 @@ const TableRowData = () => {
                             return (
                                 getFlightoffer.itineraries.map((getIntineraries, index) => {
                                     return (
-                                        <tr key={index} className=' hover:bg-gray-200 even:bg-gray-200 odd:bg-white'>
+                                        <tr key={index} className=' hover:bg-gray-100 even:bg-gray-200 odd:bg-white'>
                                             <td>
                                                 {
                                                     getIntineraries.segments.map((getSegments, index) => (

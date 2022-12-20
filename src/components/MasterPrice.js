@@ -52,7 +52,7 @@ const MasterPrice = () => {
                     </div>
                     <form className="flex items-center sm:gap-3">
                         <label>Environment</label>
-                        <input type="radio" name="Environment" value="Dummy"/>
+                        <input type="radio" name="Environment" value="Dummy" checked/>
                         <label> Dummy </label>
                         <input type="radio" name="Environment" value="PDT"/>
                         <label> PDT </label>
