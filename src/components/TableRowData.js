@@ -1,251 +1,113 @@
 import React from 'react';
-import Record from './records.json'
+import Records from './records.json';
 import Button from './Button';
+
+const TableMessage = ({ collectMessage }) => {
+    return (
+        <div>
+            {
+                Records.map((records)=>{
+                    return(records.message)
+                })
+            }
+        </div>
+    )
+}
 
 const TableRowData = () => {
     return (
         <>
             {
-                Record.map((records, index) => (
-                    <tr key={index} class="bg-white border-b">
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900">
-                            <td>
-                                {
-                                    records.flightOffer.map((getFlightoffer, index) => (
-                                        <tr key={index}>
-                                            {
-                                                getFlightoffer.itineraries.map((getIntineraries, index) => (
-                                                    <tr key={index}>
-                                                        {
-                                                            getIntineraries.segments.map((getSegments, index) => (
-                                                                <tr key={index}>
-                                                                    {getSegments.marketingCarrier}
-                                                                </tr>
-                                                            ))
-                                                        }
-                                                    </tr>
-                                                ))
-                                            }
-                                        </tr>
-                                    ))
-                                }
-                            </td>
-                            <td>
-                                {
-                                    records.flightOffer.map((getFlightoffer, index) => (
-                                        <tr key={index}>
-                                            {
-                                                getFlightoffer.itineraries.map((getIntineraries, index) => (
-                                                    <tr key={index}>
-                                                        {
-                                                            getIntineraries.segments.map((getSegments, index) => (
-                                                                <tr key={index}>
-                                                                    {getSegments.aircraft}
-                                                                </tr>
-                                                            ))
-                                                        }
-                                                    </tr>
-                                                ))
-                                            }
-                                        </tr>
-                                    ))
-                                }
-                            </td>
-                        </td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900 text-center">
-                            {
-                                records.flightOffer.map((getFlightoffer, index) => (
-                                    <tr key={index}>
-                                        {
-                                            getFlightoffer.itineraries.map((getIntineraries, index) => (
-                                                <tr key={index}>
-                                                    {
-                                                        getIntineraries.segments.map((getSegments, index) => (
-                                                            <tr key={index}>
-                                                                {getSegments.flightNumber}
-                                                            </tr>
-                                                        ))
-                                                    }
-                                                </tr>
-                                            ))
-                                        }
-                                    </tr>
-                                ))
-                            }
-                        </td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {
-                                records.flightOffer.map((getFlightoffer, index) => (
-                                    <tr key={index}>
-                                        {
-                                            getFlightoffer.class.map((getClass, index) => (
-                                                <tr key={index}>
-                                                    {
+                Records.map((records) => {
+                    return (
+                        records.flightOffer.map((getFlightoffer) => {
+                            return (
+                                getFlightoffer.itineraries.map((getIntineraries, index) => {
+                                    return (
+                                        <tr key={index} className=' hover:bg-gray-200 even:bg-gray-200 odd:bg-white'>
+                                            <td>
+                                                {
+                                                    getIntineraries.segments.map((getSegments, index) => (
+                                                        <div key={index}>
+                                                            {`${getSegments.carrierCode} ${getSegments.aircraft}`}
+                                                        </div>
+                                                    ))
+                                                }
+                                            </td>
+                                            <td>
+                                                {
+                                                    getIntineraries.segments.map((getSegments, index) => (
+                                                        <div key={index}>
+                                                            {getSegments.flightNumber}
+                                                        </div>
+                                                    ))
+                                                }
+                                            </td>
+                                            <td>
+                                                {
+                                                    getFlightoffer.class.map((getClass) => (
                                                         getClass.map((classes, index) => (
-                                                            <tr key={index}>
-                                                                {classes}
-                                                            </tr>
+                                                            <div key={index}>{classes}</div>
                                                         ))
-                                                    }
-                                                </tr>
-                                            ))
-                                        }
-                                    </tr>
-                                ))
-                            }
-                        </td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {
-                                records.flightOffer.map((getFlightoffer, index) => (
-                                    <tr key={index}>
-                                        {
-                                            getFlightoffer.fareBasis.map((getFareBasis, index) => (
-                                                <tr key={index}>
-                                                    {
-                                                        getFareBasis.map((fareBasises, index) => (
-                                                            <tr key={index}>
-                                                                {fareBasises}
-                                                            </tr>
+                                                    ))
+                                                }
+                                            </td>
+                                            <td>
+                                                {
+                                                    getFlightoffer.fareBasis.map((getFare) => (
+                                                        getFare.map((fareBasises, index) => (
+                                                            <div key={index}>{fareBasises}</div>
                                                         ))
-                                                    }
-                                                </tr>
-                                            ))
-                                        }
-                                    </tr>
-                                ))
-                            }
-                        </td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900">
-                            <td>
-                                {
-                                    records.flightOffer.map((getFlightoffer, index) => (
-                                        <tr key={index}>
-                                            {
-                                                getFlightoffer.itineraries.map((getIntineraries, index) => (
-                                                    <tr key={index}>
-                                                        {
-                                                            getIntineraries.segments.map((getSegments, index) => (
-                                                                <tr key={index}>
-                                                                    {
-                                                                        getSegments.departure.iataCode + " -"
-                                                                    }
-                                                                </tr>
-                                                            ))
-                                                        }
-                                                    </tr>
-                                                ))
-                                            }
+                                                    ))
+                                                }
+                                            </td>
+                                            <td>
+                                                {
+                                                    getIntineraries.segments.map((getSegments,index) => (
+                                                        <div key={index}>
+                                                            {`${getSegments.departure.iataCode} - ${getSegments.arrival.iataCode}`}
+                                                        </div>
+                                                    ))
+                                                }
+                                            </td>
+                                            <td>
+                                                {
+                                                    getIntineraries.segments.map((getSegments, index) => (
+                                                        <div key={index}>
+                                                            {getSegments.departure.at}
+                                                        </div>
+                                                    ))
+                                                }
+                                            </td>
+                                            <td>
+                                                {
+                                                    getIntineraries.segments.map((getSegments, index) => (
+                                                        <div key={index}>
+                                                            {getSegments.arrival.at}
+                                                        </div>
+                                                    ))
+                                                }
+                                            </td>
+                                            <td className="align-top p-1">
+                                                {getIntineraries.duration}
+                                            </td>
+                                            <td>
+                                                {getFlightoffer.price}
+                                                <Button/>
+                                            </td>
                                         </tr>
-                                    ))
-                                }
-                            </td>
-                            <td>
-                                {
-                                    records.flightOffer.map((getFlightoffer, index) => (
-                                        <tr key={index}>
-                                            {
-                                                getFlightoffer.itineraries.map((getIntineraries, index) => (
-                                                    <tr key={index}>
-                                                        {
-                                                            getIntineraries.segments.map((getSegments, index) => (
-                                                                <tr key={index}>
-                                                                    {
-                                                                        getSegments.arrival.iataCode
-                                                                    }
-                                                                </tr>
-                                                            ))
-                                                        }
-                                                    </tr>
-                                                ))
-                                            }
-                                        </tr>
-                                    ))
-                                }
-                            </td>
-                        </td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {
-                                records.flightOffer.map((getFlightoffer, index) => (
-                                    <tr key={index}>
-                                        {
-                                            getFlightoffer.itineraries.map((getIntineraries, index) => (
-                                                <tr key={index}>
-                                                    {
-                                                        getIntineraries.segments.map((getSegments, index) => (
-                                                            <tr key={index}>
-                                                                {
-                                                                    getSegments.departure.at
-                                                                }
-                                                            </tr>
-                                                        ))
-                                                    }
-                                                </tr>
-                                            ))
-                                        }
-                                    </tr>
-                                ))
-                            }
-                        </td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {
-                                records.flightOffer.map((getFlightoffer, index) => (
-                                    <tr key={index}>
-                                        {
-                                            getFlightoffer.itineraries.map((getIntineraries, index) => (
-                                                <tr key={index}>
-                                                    {
-                                                        getIntineraries.segments.map((getSegments, index) => (
-                                                            <tr key={index}>
-                                                                {
-                                                                    getSegments.arrival.at
-                                                                }
-                                                            </tr>
-                                                        ))
-                                                    }
-                                                </tr>
-                                            ))
-                                        }
-                                    </tr>
-                                ))
-                            }
-                        </td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900">
-                            {
-                                records.flightOffer.map((getFlightoffer, index) => (
-                                    <tr key={index}>
-                                        {
-                                            getFlightoffer.itineraries.map((getIntineraries, index) => (
-                                                <tr key={index}>
-                                                    {
-                                                        getIntineraries.duration
-                                                    }
-                                                </tr>
-                                            ))
-                                        }
-                                    </tr>
-                                ))
-                            }
-                        </td>
-                        <td class="px-6 whitespace-nowrap text-sm font-medium text-gray-900 text-center">
-                            {
-                                records.flightOffer.map((getFlightoffer, index) => (
-                                    <tr key={index}>
-                                        {
-                                            getFlightoffer.price
-                                        }
-                                        <Button />
-                                    </tr>
-                                ))
-                            }
-                        </td>
-                    </tr>
-                    //  console.log(records, index)
-                ))
-
+                                    )
+                                })
+                            )
+                        })
+                    )
+                    // print the nested record
+                    // console.log(records)
+                })
             }
-
         </>
     )
 }
 
-export default TableRowData
+export default TableRowData;
+

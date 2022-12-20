@@ -51,11 +51,11 @@ const MasterPrice = () => {
                         <label>Extra Option</label>
                     </div>
                     <form className="flex items-center sm:gap-3">
-                        <label htmlFor="">Environment</label>
+                        <label>Environment</label>
                         <input type="radio" name="Environment" value="Dummy"/>
-                        <label class="radio"> Dummy </label>
+                        <label> Dummy </label>
                         <input type="radio" name="Environment" value="PDT"/>
-                        <label class="radio"> PDT </label>
+                        <label> PDT </label>
                     </form>
                     <div>
                         <button className="bg-indigo-900 hover:bg-[#04266f] text-white h-9 w-[100px] rounded-md text-[14px] font-normal" type="submit">SEARCH</button>
